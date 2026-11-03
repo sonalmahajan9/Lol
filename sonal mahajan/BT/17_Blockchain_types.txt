@@ -1,0 +1,32 @@
+LP3 BT PRACTICAL 17
+SURVEY: TYPES OF BLOCKCHAINS AND REAL-TIME USE CASES
+====================================================
+
+1. PUBLIC BLOCKCHAIN
+Open participation; data/transactions are generally visible according to the network design. Examples of use include public cryptocurrencies, decentralized applications and open smart contracts.
+
+2. PRIVATE BLOCKCHAIN
+Participation and permissions are controlled by one organization. Use cases can include internal audit records, enterprise workflow and controlled record management.
+
+3. CONSORTIUM / FEDERATED BLOCKCHAIN
+Governed by a group of selected organizations instead of one organization or the entire public. Use cases include multi-bank coordination, trade finance and supply-chain records shared among partners.
+
+4. HYBRID BLOCKCHAIN
+Combines private/permissioned data management with selected public verification or disclosure. Use cases can include controlled sharing of records with public proof of integrity.
+
+REAL-WORLD USE CASES
+- Supply chain: trace product origin and handoffs.
+- Healthcare: permissioned sharing/auditing of records.
+- Digital identity: verifiable credentials.
+- Finance: settlement, trade finance, tokenization and decentralized finance.
+- Smart contracts: automate rules when specified conditions are met.
+- Land/asset records: tamper-evident history when supported by reliable input processes.
+
+ADVANTAGES
+Shared audit trail, traceability, tamper-evidence, and automation through smart contracts.
+
+LIMITATIONS
+Privacy, scalability, transaction costs, governance, regulatory compliance, key management and incorrect off-chain data inputs need careful handling.
+
+CONCLUSION
+The suitable blockchain type depends on who needs to participate, who controls permissions, what data should be public, and the required performance and governance.

@@ -1,0 +1,60 @@
+LP3 BT PRACTICAL 15
+BANK ACCOUNT SMART CONTRACT: DEPOSIT, WITHDRAW, SHOW BALANCE
+=============================================================
+
+AIM
+Implement deposit, withdrawal and balance display operations in Solidity.
+
+HOW TO RUN
+1. Open https://remix.ethereum.org/
+2. Create a new Solidity file named Bank.sol.
+3. Copy the code below into Bank.sol.
+4. Choose a Solidity 0.8.20-or-compatible 0.8.x compiler and compile.
+5. Deploy using Remix VM for a local demonstration.
+6. To deposit, choose a small Value (e.g. 1 ether or an amount in wei) and click deposit.
+7. Click showBalance. The returned amount is in wei.
+8. Enter an amount in wei into withdraw and execute it. Call showBalance again.
+
+SOLIDITY SOURCE (copy from below into Bank.sol)
+-----------------------------------------------
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Bank {
+    mapping(address => uint256) private balances;
+
+    event Deposited(address indexed user, uint256 amount);
+    event Withdrawn(address indexed user, uint256 amount);
+
+    function deposit() public payable {
+        require(msg.value > 0, "Amount must be positive");
+        balances[msg.sender] += msg.value;
+        emit Deposited(msg.sender, msg.value);
+    }
+
+    function withdraw(uint256 amount) public {
+        require(amount > 0, "Amount must be positive");
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        require(success, "Transfer failed");
+        emit Withdrawn(msg.sender, amount);
+    }
+
+    function showBalance() public view returns (uint256) {
+        return balances[msg.sender];
+    }
+}
+
+IMPORTANT NOTES
+- deposit is payable so it can receive Ether.
+- msg.sender is the caller; msg.value is the amount sent, denominated in wei.
+- showBalance returns this caller's recorded balance in wei.
+- This is a teaching example, not a production banking contract.
+- A successful withdrawal reduces the caller's recorded balance and transfers Ether.
+
+VIVA
+mapping: key-value storage. payable: can receive Ether. require: checks a condition. view: does not change state. Event: logs an operation.
+
+RESULT
+The contract was compiled and deployed in the local Remix VM and deposit/withdraw/balance functions were tested.

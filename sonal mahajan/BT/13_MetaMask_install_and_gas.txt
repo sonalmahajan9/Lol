@@ -1,0 +1,45 @@
+LP3 BT PRACTICAL 13
+INSTALL METAMASK AND STUDY ETHER SPENDING PER TRANSACTION
+=========================================================
+
+AIM
+Install MetaMask and observe the gas used and transaction fee for an Ether transfer.
+
+PROCEDURE
+1. Open the official MetaMask site: https://metamask.io/
+2. Use the official download link to install the browser extension.
+3. Create a wallet and set a strong password.
+4. Write down the Secret Recovery Phrase offline and store it securely. Never share it or enter it into an unofficial website.
+5. Select an Ethereum test network (for example, Sepolia, if shown in MetaMask).
+6. Request test ETH from a trusted faucet for that network.
+7. Send a small amount of test ETH to another test address you control.
+8. Open the transaction details in the appropriate block explorer.
+9. Record the transaction hash, gas used, effective gas price, and transaction fee.
+
+FORMULA
+Transaction fee (ETH) = Gas used x Effective gas price (ETH per gas)
+If gas price is in Gwei:
+Fee (ETH) = Gas used x Gas price (Gwei) x 10^-9
+
+ILLUSTRATIVE CALCULATION
+Gas used = 21,000; gas price = 10 Gwei
+Fee = 21,000 x 10 x 10^-9 = 0.00021 ETH
+These are sample figures only. Actual gas used and gas price vary by transaction and network conditions.
+
+OBSERVATION TABLE
+Transaction hash: _______________________________
+Network: _______________________________________
+Amount transferred: _____________________________
+Gas used: ______________________________________
+Effective gas price: ____________________________
+Transaction fee: ________________________________
+
+RESULT
+MetaMask was used to send a test transaction and the transaction details were inspected to study gas and fees.
+
+VIVA
+- Ether (ETH): native cryptocurrency of Ethereum.
+- Gas: unit measuring computational work on Ethereum.
+- Gas price: amount paid per unit of gas.
+- Wallet address: public identifier used to receive assets.
+- Recovery phrase/private key: secret credentials; never share them.

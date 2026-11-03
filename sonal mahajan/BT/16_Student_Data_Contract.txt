@@ -1,0 +1,74 @@
+LP3 BT PRACTICAL 16
+STUDENT DATA USING STRUCTURES, ARRAYS, RECEIVE AND FALLBACK
+===========================================================
+
+AIM
+Create student records using a struct and dynamic array; implement receive and fallback functions; observe gas information in Remix.
+
+HOW TO RUN
+1. Open https://remix.ethereum.org/ and create StudentData.sol.
+2. Copy the Solidity source below to StudentData.sol.
+3. Compile using a compatible Solidity 0.8.x compiler.
+4. Deploy using Remix VM.
+5. Call addStudent with rollNo=1, name="Omkar", marks=90.
+6. Call getStudent with index 0; call getCount to get the number of records.
+7. Test receive by sending Ether to the deployed contract with empty calldata.
+8. Test fallback by sending a transaction with unmatched calldata. Use Remix VM for safe testing.
+9. Select each transaction in Remix's terminal/details to inspect gas used and transaction cost information where available.
+
+SOLIDITY SOURCE (copy from below into StudentData.sol)
+-----------------------------------------------------
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract StudentData {
+    struct Student {
+        uint256 rollNo;
+        string name;
+        uint256 marks;
+    }
+
+    Student[] public students;
+    event EtherReceived(address indexed sender, uint256 amount, bool viaFallback);
+
+    function addStudent(uint256 rollNo, string memory name, uint256 marks) public {
+        students.push(Student(rollNo, name, marks));
+    }
+
+    function getStudent(uint256 index)
+        public view returns (uint256, string memory, uint256)
+    {
+        require(index < students.length, "Invalid index");
+        Student memory s = students[index];
+        return (s.rollNo, s.name, s.marks);
+    }
+
+    function getCount() public view returns (uint256) {
+        return students.length;
+    }
+
+    receive() external payable {
+        emit EtherReceived(msg.sender, msg.value, false);
+    }
+
+    fallback() external payable {
+        emit EtherReceived(msg.sender, msg.value, true);
+    }
+}
+
+VIVA
+- struct groups related fields into one record.
+- Student[] is a dynamic array of Student structures.
+- push appends a record.
+- receive() runs for plain Ether transfers with empty calldata.
+- fallback() can handle unmatched calls and can receive Ether when marked payable.
+- Gas is a measure of computation; transaction cost depends on gas used and gas price.
+
+OBSERVATION
+Deployment gas: _________________________________
+addStudent transaction gas: _____________________
+receive/fallback test gas: _______________________
+Transaction fee/cost displayed: __________________
+
+RESULT
+Student records and Ether-receiving functions were implemented and transaction gas information was observed in Remix VM. Local VM costs are for demonstration and are not mainnet fees.

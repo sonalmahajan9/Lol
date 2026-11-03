@@ -1,0 +1,31 @@
+LP3 BT PRACTICAL 14
+CREATE A WALLET USING METAMASK FOR CRYPTO TRANSACTIONS
+======================================================
+
+AIM
+Create a MetaMask wallet and learn how to receive/send cryptocurrency safely.
+
+PROCEDURE
+1. Open https://metamask.io/ and install the official browser extension.
+2. Select Create a new wallet.
+3. Create a strong password.
+4. Back up the Secret Recovery Phrase offline in a private and safe place.
+5. Confirm the recovery phrase in the setup process.
+6. Open the wallet and copy the public wallet address to receive assets.
+7. Select the intended network. For exam practice, use a test network and test ETH.
+8. Receive test ETH from a trusted faucet or another test account.
+9. Use Send to transfer a small test amount to another test address.
+10. Inspect the transaction hash, status, gas used, and fee using the correct block explorer.
+
+OBSERVATIONS
+Wallet public address: ___________________________
+Network used: ___________________________________
+Transaction hash: _______________________________
+Transfer status: ________________________________
+Gas used / fee: _________________________________
+
+RESULT
+A MetaMask wallet was created and the basic receive/send transaction flow was studied.
+
+SECURITY
+The wallet address may be shared to receive funds. The private key and Secret Recovery Phrase must never be shared. Verify addresses carefully before sending assets.
